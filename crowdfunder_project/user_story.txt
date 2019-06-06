@@ -1,0 +1,33 @@
+Keys:
+Owner: person who wants funding for their project
+Backer: Person who funds a project
+User: Any viewer of the website
+
+
+
+Need:
+
+As a project owner, I want to be able to create a new project with a title and a description
+
+As a project owner, I want to set a funding goal for my project
+    This must be a positive number
+
+As a backer, I want to be able to back a project 
+
+Want:
+
+As a project owner, I want to set a funding period (start date, finish date) for my project
+    The start date must be in the future
+    The end date must be later than the start date
+
+As a project owner, I want the ability to set funding rewards with a description of what backers will receive for each reward
+
+As a backer I want to get a reward for backing a project
+
+
+Nice:
+
+As a backer, when I back a project, I should see the amount raised update according to the amount that I pledged
+
+As a project owner, I shouldn't be able to back my own project.
+
