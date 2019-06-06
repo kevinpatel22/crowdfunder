@@ -6,13 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from crowdfunder_project.forms import ProjectForm
 
-def create_project(request):
-    form = ProjectForm(request.POST)
-    new_project = form.instance
+def new_project(request):
+    form = ProjectForm()
+    # new_project = form.instance
     # reservation.user = request.user
-    if form.is_valid():
-        form.save()
-        return redirect(reverse('project_show', args=[restaurant.pk]))
-    else:
-        context = {'restaurant': restaurant, 'reservation_form': form, 'title': restaurant.name}
-        return render(request, 'restaurant_details.html', context)
+    context = {'new_project': form}
+    return render(request, 'new_project.html', context)

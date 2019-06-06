@@ -19,6 +19,7 @@ from crowdfunder_project.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('project/new', new_project, name='new_project'),
     # path('home/', home, name='home_page'),
     # path('login/', login_view, name='login'),
     # path('logout/', logout_view, name='logout'),
