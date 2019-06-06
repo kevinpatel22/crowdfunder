@@ -15,5 +15,5 @@ class Project(models.Model):
 
 class Backer(models.Model):
     name = models.CharField(max_length=255)
-    projects = models.ManyToManyField(Project, on_delete=models.CASCADE, related_name='backers')
+    projects = models.ManyToManyField(Project, related_name='backers')
     
