@@ -12,7 +12,7 @@ As a project owner, I want to be able to create a new project with a title and a
 As a project owner, I want to set a funding goal for my project
     This must be a positive number
 
-As a backer, I want to be able to back a project 
+As user, I want to be able to back a project 
 
 Want:
 
@@ -64,7 +64,7 @@ As a backer, I want to be able to find other projects owned by that same person
 Iteration 4:
 Need:
 As a project owner, to help people find my project, I want the ability to add it to a category
-As a backer, I want to be able to see all projects in a particular category
+As a user, I want to be able to see all projects in a particular category
 
 Want:
 As a project owner, to help people find my project, I want the ability to add various tags to my project
@@ -74,8 +74,6 @@ Nice:
 Projects should only belong to a single category
 
 Iteration 5:
-Need:
-As a backer, I want to be notified when any projects I am backing meet their goal and are fully funded
 
 Want:
 As a user, I would like to see how many total people have funded projects
@@ -83,6 +81,7 @@ As a user, I would like to see how many total people have funded projects
 Nice:
 As a user, I would like to see how much money has been raised in total
 As a user, I would like to see the percentage of funded versus failed projects, site-wide
+As a user, I want to be notified when any projects I am backing meet their goal and are fully funded
 
 Iteration 6:
 Need:
