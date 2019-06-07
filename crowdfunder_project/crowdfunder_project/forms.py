@@ -16,3 +16,8 @@ class ProjectForm(ModelForm):
     class Meta:
         model = Project
         fields = ['owner','title', 'description', 'budget', 'image']
+
+
+class LoginForm(Form):
+    username = CharField(label="User Name", max_length=64)
+    password = CharField(widget=PasswordInput())
