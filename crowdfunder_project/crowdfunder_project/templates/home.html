@@ -16,7 +16,7 @@
     <ul>
         {% for project in projects %}
             <li class="project"> 
-                <a href="{% url 'new_project' %}">
+                <a href="{% url 'show_project' id=project.id %}">
                     <h3>{{ project.title}}</h3>
                 </a>
                     <p>{{ project.description }}</p>
