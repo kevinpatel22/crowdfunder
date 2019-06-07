@@ -20,20 +20,21 @@ def home_page(request):
 def new_project(request):
     form = ProjectForm()
     context = {'form': form}
-    return render(request, 'new_project.html', context)
+    return render(request, 'create_project.html', context)
 
-def save_project(request):
+def create_project(request):
     form = ProjectForm(request.POST)
     if form.is_valid():
         form.save()
         return redirect('home_page')
     else:
         context = {'error_msg': 'You have invalid form, try again!', 'form': form}
-        response = render(request, 'new_project.html', context)
+        response = render(request, 'create_project.html', context)
         return HttpResponse(response)
         
 # def show_project(request, project_id):
     # show_project = Project.objects.get(id=project_id)
     # context = {'form': form, 'error_msg': 'You have invalid form, try again!'}
     # return render(request, 'new_project.html', context)
+
 
