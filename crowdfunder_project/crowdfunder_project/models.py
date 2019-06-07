@@ -37,3 +37,8 @@ class Donation(models.Model):
     donator = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='charities', null=True)
     reward = models.ForeignKey(Reward, on_delete=models.SET_NULL, related_name='donations', null=True)
 
+class Update(models.Model):
+    message = models.TextField()
+    title = models.CharField(max_length=255)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='updates')
+
