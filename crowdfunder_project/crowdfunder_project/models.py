@@ -1,16 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-class Owner(models.Model):
-    name = models.CharField(max_length=255)
-
 class Project(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     budget = models.IntegerField()
-    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='projects')
-    
+    owner = models.CharField(max_length=255)
+    image = models.URLField(max_length=255, null=True)
 
 
 class Backer(models.Model):

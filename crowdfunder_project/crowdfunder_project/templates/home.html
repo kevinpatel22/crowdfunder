@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content %}
+
+ 
+    <h2>Home Page</h2>
+
+    
+    <div class="project">
+        {% for project in projects %}
+            <a href="{% url 'new_project' %}"><h3>{{ project.title}}</h3>
+            <p>{{ project.description }}</p>
+            <p> {{ project.budget }}</p>
+            </a>
+            
+        {% endfor %}
+    </div>
+
+{% endblock %}
