@@ -31,6 +31,14 @@ def save_project(request):
         context = {'error_msg': 'You have invalid form, try again!', 'form': form}
         response = render(request, 'new_project.html', context)
         return HttpResponse(response)
+
+def search_project(request):
+    query = request.GET['query']
+    search_results = Project.objects.filter(title=query)
+    context = {'projects': search_results, 'query': query}
+    response = render(request, 'search.html', context)
+    return HttpResponse(response)
+
         
 # def show_project(request, project_id):
     # show_project = Project.objects.get(id=project_id)

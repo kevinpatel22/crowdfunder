@@ -22,7 +22,8 @@ urlpatterns = [
     path('project/new', new_project, name='new_project'),
     path('', root),
     path('home/', home_page, name='home_page'),
-    path('save/', save_project, name='save_project')
+    path('save/', save_project, name='save_project'),
+    path('search', search_project, name ='search_project'), 
     # path('projects/', show_project, name='projects_page'),
     # path('login/', login_view, name='login'),
     # path('logout/', logout_view, name='logout'),
