@@ -2,6 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import timezone
 
+class Category(models.Model):
+    name = models.CharField(max_length=20)
+    description = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return f'|- self.name -|'
+
 class Project(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -10,6 +17,7 @@ class Project(models.Model):
     image = models.URLField(max_length=255, null=True)
     start_dtime = models.DateTimeField(default=timezone.now)
     end_dtime = models.DateTimeField()
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='projects', null=True)
 
 class Comment(models.Model):
     title = models.CharField(max_length=255)
@@ -28,3 +36,4 @@ class Donation(models.Model):
     amount = models.IntegerField()
     donator = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='charities', null=True)
     reward = models.ForeignKey(Reward, on_delete=models.SET_NULL, related_name='donations', null=True)
+
