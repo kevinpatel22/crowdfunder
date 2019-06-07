@@ -1,13 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import timezone
+from datetime import timezone, datetime
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
     description = models.TextField(max_length=1000)
 
     def __str__(self):
-        return f'|- self.name -|'
+        return f'-~-~- {self.name} -~-~-'
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
@@ -15,8 +15,8 @@ class Project(models.Model):
     budget = models.IntegerField()
     owner = models.ForeignKey(User,on_delete=models.CASCADE,related_name='projects')
     image = models.URLField(max_length=255, null=True)
-    start_dtime = models.DateTimeField(default=timezone.now)
-    end_dtime = models.DateTimeField()
+    start_dtime = models.DateTimeField(default=datetime.now)
+    end_dtime = models.DateTimeField(null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='projects', null=True)
 
 class Comment(models.Model):
