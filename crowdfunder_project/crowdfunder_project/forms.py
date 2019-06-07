@@ -1,5 +1,5 @@
 import datetime as dt
-from crowdfunder_project.models import Project, Backer 
+from crowdfunder_project.models import *
 from datetime import datetime, timedelta
 from django.core.exceptions import ValidationError
 from django.forms import (CharField, DateField, IntegerField,
