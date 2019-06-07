@@ -11,8 +11,8 @@ class ProjectForm(ModelForm):
     
     # title = forms.CharField()
     # description = forms.CharField()
-    budget = IntegerField(validators=[MinValueValidator(1)])
+    budget = IntegerField(validators=[MinValueValidator(1)] )
 
     class Meta:
         model = Project
-        fields = ['owner','title', 'description', 'budget']
+        fields = ['owner','title', 'description', 'budget', 'image']

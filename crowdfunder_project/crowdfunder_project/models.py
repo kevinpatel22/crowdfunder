@@ -6,7 +6,7 @@ class Project(models.Model):
     description = models.TextField()
     budget = models.IntegerField()
     owner = models.CharField(max_length=255)
-    
+    image = models.URLField(max_length=255, null=True)
 
 
 class Backer(models.Model):

@@ -1,9 +1,9 @@
 {% extends 'base.html'%}
 
 {% block content%}
-<form method='post' action="{% url 'new_project'%}">
+<form method='post' action="{% url 'save_project'%}">
 {% csrf_token %}
-{{ new_project }}
+{{ form.as_p }}
 <input type='submit'>
 </form>
 
