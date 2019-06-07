@@ -25,6 +25,7 @@ urlpatterns = [
     path('save/', save_project, name='save_project'),
     path('search', search_project, name ='search_project'), 
     path('create/', create_project, name='create_project'),
+    path('projects/<int:id>/', show_project, name='show_project'),
     # path('projects/', show_project, name='projects_page'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),

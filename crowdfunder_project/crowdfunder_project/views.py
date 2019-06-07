@@ -44,7 +44,11 @@ def search_project(request):
     # show_project = Project.objects.get(id=project_id)
     # context = {'form': form, 'error_msg': 'You have invalid form, try again!'}
     # return render(request, 'new_project.html', context)
-
+def show_project(request, id):
+    project = Project.objects.get(id=id)
+    context = {'project': project, 'error_msg': 'You have invalid form, try again!'}
+    return render(request, 'project_details.html', context)
+    
 # @login_required
 # def backer_page(request):
 #     if request.method == 'POST':
