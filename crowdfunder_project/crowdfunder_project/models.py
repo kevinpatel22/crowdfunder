@@ -39,6 +39,7 @@ class Donation(models.Model):
 
 class Update(models.Model):
     message = models.TextField()
+    image = models.CharField(max_length=500, null=True)
     title = models.CharField(max_length=255)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='updates')
 
