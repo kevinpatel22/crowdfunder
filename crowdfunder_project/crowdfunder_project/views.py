@@ -81,7 +81,6 @@ def signup(request):
 
 def login_view(request):
     if request.user.is_authenticated:
-        print('auth auth', request.user.username)
         return HttpResponseRedirect('/home')
     if request.method == 'POST':
         form = LoginForm(request.POST)
