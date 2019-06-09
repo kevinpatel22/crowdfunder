@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+ <title>{% block title %}{% endblock %}</title> 
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,13 +14,17 @@
 </head>
 
 <body>
-    <form action="{% url 'search_project' %}" method="get">
-        <label for ="search_project">
-            <span>Search:</span>
-            <input type="search" id="search_project" name="query" value="{{ query }}"/>
-        </label>
-        <input type="submit" value="Search"/>
-    </form>
+<nav class='nav top'>
+    {% block top_nav %}
+     {% include 'top_nav.html' %}
+    {% endblock %}
+</nav>
+
+<nav class='nav cats'>
+    {% block cat_nav %}
+     {% include 'category_nav.html' %}
+    {% endblock %}
+</nav>
 
 
     {% block content %}
