@@ -15,7 +15,7 @@ class Project(models.Model):
     budget = models.IntegerField()
     owner = models.ForeignKey(User,on_delete=models.CASCADE,related_name='projects')
     image = models.URLField(max_length=255, null=True)
-    start_dtime = models.DateField(default=datetime.now)
+    start_dtime = models.DateField()
     end_dtime = models.DateField(null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='projects', null=True)
 
