@@ -34,4 +34,5 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('myprofile/', my_profile, name='my_profile'),
     path('project/update/<int:id>/', update_project, name='update_project'),
+    path('projects/<int:id>/add_comment', save_comment, name='save_comment'),
 ]

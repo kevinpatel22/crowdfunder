@@ -18,6 +18,21 @@
         <h3>{{ project.owner}}</h3>
     {% endif %}
     
+    <p class='box'>
+    {% for comment in project.comments.all%}
+        <h2> By {{ comment.user.username }}: {{comment.title}} </h2>
+        <h3> {{ comment.message }} </h3>
+    {% endfor %}
+
+    <form method='post' action='{% url 'save_comment' id=project.pk %}' >
+        {% csrf_token %}
+        {{ comment_form }}
+        <input type='hidden' name='user' value='{{ request.user.pk }}'></input>
+        <input type='hidden' name='project' value='{{ project.pk }}'></input>
+        <input type='submit'>
+    </form>
+    </p>
+
     {% for reward in project.rewards.all %}
         <section class='reward' >
             {% if reward.pk|slugify == reward_id %}
