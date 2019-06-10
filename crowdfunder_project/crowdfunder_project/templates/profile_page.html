@@ -5,7 +5,7 @@
      
             <h3>My Projects</h3>
 
-                {% for project in projectsown %}
+                {% for project in projects_own %}
                     <li>
                     <a href="{% url 'show_project' id=project.pk %}">{{ project.title }}</a>
                     </li>
@@ -13,10 +13,14 @@
             
             <h3>Projects backed by me</h3>
                 
-                {% for project in projectsbacked %}
+                {% for project in projects_backed %}
                     <li>
                         <a href="{% url 'show_project' id=project.pk %}">{{ project.title }}</a>
                     </li>
                 {% endfor %}
+            <h3>Total Pledge</h3>
+                
+                {{ pledged_amount }}
+
     </main>
 {% endblock %}
