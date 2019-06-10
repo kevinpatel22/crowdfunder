@@ -37,3 +37,12 @@ class RewardForm(ModelForm):
 class LoginForm(Form):
     username = CharField(label="User Name", max_length=64)
     password = CharField(widget=PasswordInput())
+
+class CommentForm(Form):
+    title = CharField(max_length=100)
+    message = CharField(max_length=200)
+
+    class Meta:
+        model = Comment
+        fields = ['title', 'message']
+

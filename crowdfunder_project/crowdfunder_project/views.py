@@ -74,7 +74,24 @@ def donate_reward(request, id):
             'donate_msg': 'error while donating',
             'reward_id': reward_id
         })
-           
+
+@login_required
+def save_comment(request, id):
+    form = CommentForm(request.POST)
+
+    if form.is_valid():
+        a_comment = Comment()
+        project = Project.objects.get(id=id)
+        a_comment.project = project
+        a_comment.title = form.cleaned_data['title']
+        a_comment.message = form.cleaned_data['message']
+        a_comment.user = request.user
+        a_comment.save()
+        return redirect(reverse('show_project', kwargs={'id':id}))
+    else:
+        context = {'error_msg': 'You have invalid form, try again!', 'form': form, 'pid': id}
+        return render(request, reverse('show_project', kwargs={'id':id}) , context)
+
 @login_required
 def create_project(request):
     form = ProjectForm(request.POST)
@@ -105,7 +122,8 @@ def search_project(request):
 
 def show_project(request, id):
     project = Project.objects.get(id=id)
-    context = {'project': project, 'error_msg': 'You have invalid form, try again!'}
+    comment_form = CommentForm()
+    context = {'project': project, 'comment_form': comment_form, 'error_msg': 'You have invalid form, try again!'}
     return render(request, 'project_details.html', context)
     
 def signup(request):
