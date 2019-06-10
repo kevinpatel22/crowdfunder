@@ -1,8 +1,10 @@
 {% extends 'base.html'%}
 
 {% block content%}
+
 <form method='post' action="{% url 'create_project'%}">
 {% csrf_token %}
+<input type='hidden' name='user' value='{{ request.user.pk }}'></input>
 {{ form.as_p }}
 <input type='submit'>
 </form>

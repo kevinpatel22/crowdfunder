@@ -9,13 +9,11 @@ from django.core.validators import MinValueValidator
 
 class ProjectForm(ModelForm):
     
-    # title = forms.CharField()
-    # description = forms.CharField()
     budget = IntegerField(validators=[MinValueValidator(1)] )
 
     class Meta:
         model = Project
-        fields = ['owner','title', 'description', 'budget', 'image']
+        fields = ['category', 'title', 'description', 'budget', 'start_dtime', 'end_dtime', 'image']
 
 
 class LoginForm(Form):

@@ -22,10 +22,31 @@ def new_project(request):
     context = {'form': form}
     return render(request, 'create_project.html', context)
 
+"""
+category
+title
+description
+budget
+start_dtime
+end_dtime
+image
+
+"""
+
 def create_project(request):
     form = ProjectForm(request.POST)
     if form.is_valid():
-        form.save()
+        # [print(data, '', form.cleaned_data[data]) for data in form.cleaned_data]
+        new_project = Project()
+        new_project.owner = request.user
+        new_project.category = form.cleaned_data['category']
+        new_project.title = form.cleaned_data['title']
+        new_project.description = form.cleaned_data['description']
+        new_project.budget = form.cleaned_data['budget']
+        new_project.start_dtime = form.cleaned_data['start_dtime']
+        new_project.end_dtime = form.cleaned_data['end_dtime']
+        new_project.image = form.cleaned_data['image']
+        new_project.save()
         return redirect('home_page')
     else:
         context = {'error_msg': 'You have invalid form, try again!', 'form': form}
