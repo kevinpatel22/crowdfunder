@@ -13,6 +13,17 @@
 {% if request.user.is_authenticated %}
     <h3>{{ project.owner}}</h3>
 {% endif %}
+    
+    {% for reward in project.rewards.all %}
+<section class='reward' >
+<form >
+        <h3>{{ reward.name }} ::: {{ reward.pledge_for }}</h3>
+        <h3>{{ reward.message }}</h3>
+</form>    
+    </section>
+    {% endfor %}
+    
+
 
 </main>
 {% endblock %}

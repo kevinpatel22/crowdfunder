@@ -6,6 +6,15 @@
     margin: 5px;
 }
 
+
+.reward {
+    border: 2px dotted red;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+
 .top {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
