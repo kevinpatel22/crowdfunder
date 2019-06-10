@@ -1,3 +1,13 @@
+finished:
+==========
+1n1
+1n2
+1n3
+1w1
+1w2
+
+
+======================================
 Keys:
 Owner: person who wants funding for their project
 Backer: Person who funds a project
@@ -7,20 +17,20 @@ User: Any viewer of the website
 Iteration 1:
 Need:
 
-As a project owner, I want to be able to create a new project with a title and a description
+1n1: As a project owner, I want to be able to create a new project with a title and a description
 
-As a project owner, I want to set a funding goal for my project
+1n2: As a project owner, I want to set a funding goal for my project
     This must be a positive number
 
-As a backer, I want to be able to back a project 
+1n3: As a backer, I want to be able to back a project 
 
 Want:
 
-As a project owner, I want to set a funding period (start date, finish date) for my project
+1w1: As a project owner, I want to set a funding period (start date, finish date) for my project
     The start date must be in the future
     The end date must be later than the start date
 
-As a project owner, I want the ability to set funding rewards with a description of what backers will receive for each reward
+1w2: As a project owner, I want the ability to set funding rewards with a description of what backers will receive for each reward
 
 Nice:
 
@@ -45,8 +55,6 @@ User: Any viewer of the website
 
 ===========================================================
 ===========================================================
-SPRINT 1:
-*) As user, I want to be able to back a project 
 
 
 
