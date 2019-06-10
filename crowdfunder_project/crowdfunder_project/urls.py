@@ -32,4 +32,6 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('signup/', signup, name='signup'),
+    path('myprofile/', my_profile, name='my_profile'),
+    path('project/update/<int:id>/', update_project, name='update_project'),
 ]
