@@ -5,6 +5,7 @@
 {% if request.user.is_authenticated %}
 
 Link to profile / projects
+<a href="{% url 'new_project' %}">Add Project</a>
 
 {% else %}
 write any thing else
