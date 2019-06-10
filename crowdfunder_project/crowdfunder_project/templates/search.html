@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %} 
-
-        <ul class = "search_results">
+        <div class = "search_results">
         <h3>Search results: <span>{{ projects.count }}</span></h3>
+        </div>
 
-        <ul class="all_projects">
+        <div class="all_projects">
                 {% for project in projects %}
                         <img src="{{project.url}}">
                         <li><p>{{project.title}} by {{picture.owner}}</p></li>
                 {% endfor %}
-        </ul>        
+        </div>        
 
 {% endblock %}
