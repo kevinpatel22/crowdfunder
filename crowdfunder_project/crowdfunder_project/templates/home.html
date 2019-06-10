@@ -1,25 +1,20 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<style>
-
-</style>
-
-<ul>
-    {% for project in projects %}
-    <section class="project">
-        <a href="{% url 'show_project' id=project.id %}">
-            <div class='title'>
-                <h3>{{ project.title}}</h3>
-            </div>
-        </a>
-        <div class='description'>
-            <p>{{ project.description }}</p>
+{% for project in projects %}
+<section class="project">
+    <a href="{% url 'show_project' id=project.id %}">
+        <div class='title'>
+            <h3>{{ project.title}}</h3>
         </div>
-        <p> {{ project.budget }}</p>
-    </section>
-    {% endfor %}
-</ul>
+    </a>
+    <div class='description'>
+        <p>{{ project.description }}</p>
+    </div>
+    <p> {{ project.budget }}</p>
+</section>
+{% endfor %}
+
 
 
 
