@@ -1,0 +1,34 @@
+{% load static %}
+<nav class='nav top'>
+<div class='box' >
+
+{% if request.user.is_authenticated %}
+
+Link to profile / projects
+
+{% else %}
+write any thing else
+{% endif %}
+
+</div>
+<div class='box' >
+<a href='{% url 'home_page' %}'>
+<img src='{% static 'img/logo.png' %}' >
+</a>
+</div>
+<div class='box' >
+{% if request.user.is_authenticated %}
+<h3>Hello {{ request.user.username }} !</h3>
+<a href='{% url 'logout' %}'>Logout</a>
+
+{% else %}
+<a href='{% url 'login' %}'>Log in</a>
+
+or 
+
+<a href='{% url 'signup' %}'>Sign Up!</a>
+
+
+{% endif %}
+</div>
+</nav>

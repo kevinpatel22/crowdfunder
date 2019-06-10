@@ -81,7 +81,7 @@ def signup(request):
 
 def login_view(request):
     if request.user.is_authenticated:
-        return HttpResponseRedirect('home_page')
+        return HttpResponseRedirect('/home')
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -102,4 +102,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/login')
+    return HttpResponseRedirect('/home')
