@@ -1,5 +1,12 @@
+{}
 *,* ::before, *::after {
     box-sizing: border-box;
+ }
+
+body {
+    font-family: TedNext,TedNextNew,arial;
+    font-style: normal;
+    color: #3c4141;
  }
  
 .navtop {
@@ -40,25 +47,33 @@
     color: gold;
 }
 
-.project {
-    background: white;
-}
-
 .reward {
-    border: 2px dotted red;
+    border: 2px solid rgb(41, 41, 41);
     padding: 20px;
     margin: 5px;
     border-radius: 20px;
 }
 
-.top {
+.project-title {
+    font-size: 24px;
+    border-bottom: 1px solid rgb(41, 41, 41);
+    padding-bottom: 2px;
+    margin: 15px;
+}
+
+
+.projects {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr; 
     grid-gap: 1em;
-    border: 4px solid gold;
+}
+
+.project {
+    background: white;
+    color: black;
     padding: 10px;
-    margin: 10px;
+    font-size: 20px;
+    border: 4px solid gold;
 }
 
 .project a {
@@ -66,19 +81,60 @@
     color: black;
 }
 
+
 .project .title {
     font-size: 2em;
     font-family: 'Permanent Marker', cursive;
-
+    color: black;
+    text-align: center;
 }
 
 .project .description {
-    font-size: 1em;
-    font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+    font-size: .8em;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project a img {
+    max-height: 150px;
 }
 
 .box {
     color: white;
+}
+
+
+.login {
+    text-align: center;
+    border: 1px solid grey;
+    max-width: 350px;
+    margin: 100px auto;
+    padding: 100px;
+}
+
+.login_title {
+    font-size: 30px;
+    margin: 30px 0px;
+    font-weight: bold;
+}
+
+.signup {
+    text-align: left;
+    border: 1px solid grey;
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 50px;
+}
+
+.signup_title {
+    font-size: 30px;
+    margin: 30px 0px;
+    font-weight: bold;
 }
 
 input[type=button], input[type=submit], input[type=reset] {

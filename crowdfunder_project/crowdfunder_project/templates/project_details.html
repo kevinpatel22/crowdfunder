@@ -2,20 +2,18 @@
 {% block content %}
 
 
-<section class='project'>
-    <div class='title'>
-    <h2>{{ project.title}}</h2>
-</div>
+<!-- <section class='project'>
+    <div class='title'> -->
+        <h2>{{ project.title}}</h2>
+    </div>
     <h3>category: {{ project.category }}</h3>
     <img src="{{ project.image }}" alt="image of project">
-    <div class='description'>
     <h3>{{ project.description }}</h3>
-    </div>
     <h3>$ {{ project.budget}}</h3>
     <h3>{{ project.start_dtime}}</h3>
     <h3>{{ project.end_dtime}}</h3>
     {% if request.user.is_authenticated %}
-        <h3>{{ project.owner}}</h3>
+    <h3>{{ project.owner}}</h3>
     {% endif %}
     
     <p class='box'>
@@ -34,24 +32,25 @@
     </p>
 
     {% for reward in project.rewards.all %}
-        <section class='reward' >
-            {% if reward.pk|slugify == reward_id %}
-                <h3 class='donate_msg'> {{ donate_msg }} </h3> 
-            {% endif %}
+    <section class='reward'>
+        {% if reward.pk|slugify == reward_id %}
+        <h3 class='donate_msg'> {{ donate_msg }} </h3>
+        {% endif %}
 
-            <h3>{{ reward.name }} ::: {{ reward.pledge_for }}</h3>
-            <h3>{{ reward.message }}</h3>
+        <h3>{{ reward.name }} ::: {{ reward.pledge_for }}</h3>
+        <h3>{{ reward.message }}</h3>
 
-            <form method='post' action='{% url 'donate_reward' id=project.pk %}'>
-                {% csrf_token %}
-                <label for="id_amount">Amount:</label> <input type='number' name="amount" id="id_amount"></input>
-                <label for="id_ily_message">Any final words:</label> <input type="text" name="ily_message" id="id_ily_message" ></input>
-                <input type="hidden" name="reward" id="id_reward" value="{{ reward.pk }}">
-                <input type="Submit" value="Do it!!">
-            </form>
-        </section>
+        <form method='post' action='{% url 'donate_reward' id=project.pk %}'>
+            {% csrf_token %}
+            <label for="id_amount">Amount:</label> <input type='number' name="amount" id="id_amount"></input>
+            <label for="id_ily_message">Any final words:</label> <input type="text" name="ily_message"
+                id="id_ily_message"></input>
+            <input type="hidden" name="reward" id="id_reward" value="{{ reward.pk }}">
+            <input type="Submit" value="Do it!!">
+        </form>
+    </section>
     {% endfor %}
 
-  
+
 </section>
 {% endblock %}

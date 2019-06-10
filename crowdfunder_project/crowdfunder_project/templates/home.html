@@ -1,19 +1,33 @@
 {% extends 'base.html'%}
+{% block title %} Punchstarter {% endblock %}
 {% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<br>
+<div class='project-title'>
+<h1>Projects</h1>
+</div>
+<br>
 
-{% for project in projects %}
-<section class="project">
-    <a href="{% url 'show_project' id=project.id %}">
-        <div class='title'>
-            <h3>{{ project.title}}</h3>
+<section class="projects">
+    
+    {% for project in projects %}
+        <div class="project">
+            <a href="{% url 'show_project' id=project.id %}">
+                    <img class="center" src="{{ project.image }}" alt="image of project">
+    
+                <div class='title'>
+                    <h3>{{ project.title}}</h3>
+                </div>
+            </a>
+            <div class='description'>
+                <p>{{ project.description|truncatechars:300 }}</p>
+            </div>
         </div>
-    </a>
-    <div class='description'>
-        <p>{{ project.description }}</p>
-    </div>
-    <p> {{ project.budget }}</p>
+    {% endfor %}
+
+
 </section>
-{% endfor %}
 
 
 

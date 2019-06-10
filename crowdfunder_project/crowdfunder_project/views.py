@@ -18,6 +18,7 @@ def home_page(request):
     context = {'projects': projects}
     return render(request, 'home.html', context)
 
+@login_required
 def new_project(request):
     form = ProjectForm()
     context = {'form': form}
@@ -163,7 +164,7 @@ def login_view(request):
     http_response = render(request, 'login.html', context)
     return HttpResponse(http_response)
 
-
+@login_required
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/home')
@@ -186,15 +187,19 @@ def my_profile(request):
 
 @login_required
 def update_project(request, id):
-    project = get_object_or_404(Project, pk=id, owner=request.user.pk)
-    # print('project',project)
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, instance=project)
-        if form.is_valid():
-            form.save()
-            return redirect('show_project', id=project.id)
+    project = Project.objects.get(id=id)
+    if request.user == project.owner: 
+        print('error1111111111111')
+
+        if request.method == 'POST':
+            form = ProjectForm(request.POST, instance=project)
+            if form.is_valid():
+                form.save()
+                return redirect('show_project', id=project.id)
+        else:
+            form = ProjectForm(instance=project) 
+        html_response = render(request, 'update_project.html', {'form': form, 'project': project})
+        return HttpResponse(html_response)
     else:
-        form = ProjectForm(instance=project) 
-    html_response = render(request, 'update_project.html', {'form': form, 'project': project})
-    return HttpResponse(html_response)
-    
+        print('error')
+        return HttpResponse("Error: <br>You don't have rights to update any changes.<br>You can only update the projects you own!")

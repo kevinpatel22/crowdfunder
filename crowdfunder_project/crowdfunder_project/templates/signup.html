@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
+{% block title %} Signup Punchstarter{% endblock %}
 {% block content %}
+<div class='signup'>
+    <div class='signup_title'><h2>Sign up</h2></div>
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="login_button">
+            <input type="submit" value="Sign up">
+        </div>
 
-<h2>Sign up</h2>
-<form action="{% url 'signup' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-</form>
+    </form>
+</div>
 
 {% endblock %}
