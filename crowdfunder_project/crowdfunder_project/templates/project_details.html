@@ -4,11 +4,15 @@
 
 <main class='project'>
     <h2>{{ project.title}}</h2>
+    <h3>category: {{ project.category }}</h3>
     <img src="{{ project.image }}" alt="image of project">
     <h3>{{ project.description }}</h3>
     <h3>$ {{ project.budget}}</h3>
-    <h3>Owner: {{ project.owner }}</h3>
+    <h3>{{ project.start_dtime}}</h3>
+    <h3>{{ project.end_dtime}}</h3>
+{% if request.user.is_authenticated %}
+    <h3>{{ project.owner}}</h3>
+{% endif %}
 
-  
 </main>
 {% endblock %}

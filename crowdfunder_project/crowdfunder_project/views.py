@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
@@ -22,6 +22,41 @@ def new_project(request):
     context = {'form': form}
     return render(request, 'create_project.html', context)
 
+@login_required
+def add_reward(request, id):
+    form = RewardForm()
+    # [print(data) for data in form]
+    context = {'form': form, 'pid': id}
+    return render(request, 'add_reward.html', context)
+
+@login_required
+def save_reward(request, id):
+    form = RewardForm(request.POST)
+    print('-----------------')
+    print('---===========---')
+
+    # [print(data, ':', form.cleaned_data[data]) for data in form.cleaned_data]
+    [print(data, ':', request.POST[data]) for data in request.POST]
+    if form.is_valid():
+        print('---===========---')
+        new_reward = Reward()
+        print('---===========---')
+        project = Project.objects.get(id=id)
+        print('---===========---')
+        
+        print('project:',project, '--','id:',id)
+        new_reward.project = project
+        new_reward.name = form.cleaned_data['name']
+        new_reward.message = form.cleaned_data['message']
+        new_reward.pledge_for = form.cleaned_data['pledge_for']
+        new_reward.save()
+        return redirect(reverse('show_project', kwargs={'id':id}))
+    else:
+        context = {'error_msg': 'You have invalid form, try again!', 'form': form, 'pid': id}
+        return render(request, 'add_reward.html', context)
+
+
+    return HttpResponse('to save reward')
 """
 category
 title
@@ -33,6 +68,7 @@ image
 
 """
 
+@login_required
 def create_project(request):
     form = ProjectForm(request.POST)
     if form.is_valid():
@@ -60,28 +96,11 @@ def search_project(request):
     response = render(request, 'search.html', context)
     return HttpResponse(response)
 
-        
-# def show_project(request, project_id):
-    # show_project = Project.objects.get(id=project_id)
-    # context = {'form': form, 'error_msg': 'You have invalid form, try again!'}
-    # return render(request, 'new_project.html', context)
 def show_project(request, id):
     project = Project.objects.get(id=id)
     context = {'project': project, 'error_msg': 'You have invalid form, try again!'}
     return render(request, 'project_details.html', context)
     
-# @login_required
-# def backer_page(request):
-#     if request.method == 'POST':
-#         form = BackerForm(request.POST)
-#         if form.is_valid():
-#             backproject = from.save(commit=False)
-#             backproject.user = request.user
-#             form.save()
-#             return
-#         else:
-
-
 def signup(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('/home')
