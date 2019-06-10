@@ -55,8 +55,6 @@ User: Any viewer of the website
 
 ===========================================================
 ===========================================================
-SPRINT 1:
-*) As user, I want to be able to back a project 
 
 
 
