@@ -30,24 +30,14 @@ def add_reward(request, id):
     return render(request, 'add_reward.html', context)
 
 @login_required
-def donate_reward(request, id):
-    pass
-
-@login_required
 def save_reward(request, id):
     form = RewardForm(request.POST)
-    print('-----------------')
-    print('---===========---')
 
     # [print(data, ':', form.cleaned_data[data]) for data in form.cleaned_data]
     [print(data, ':', request.POST[data]) for data in request.POST]
     if form.is_valid():
-        print('---===========---')
         new_reward = Reward()
-        print('---===========---')
         project = Project.objects.get(id=id)
-        print('---===========---')
-        
         print('project:',project, '--','id:',id)
         new_reward.project = project
         new_reward.name = form.cleaned_data['name']
@@ -59,17 +49,32 @@ def save_reward(request, id):
         context = {'error_msg': 'You have invalid form, try again!', 'form': form, 'pid': id}
         return render(request, 'add_reward.html', context)
 
-"""
-category
-title
-description
-budget
-start_dtime
-end_dtime
-image
+@login_required
+def donate_reward(request, id):
+    a_donation = Donation()
+    a_donation.amount = request.POST['amount']
+    a_donation.ily_message = request.POST['ily_message']
+    a_donation.donator = request.user
+    reward_id = request.POST['reward']
+    a_donation.reward = Reward.objects.get(id=reward_id)
+    project = Project.objects.get(id=id)
 
-"""
+    if request.method == 'POST':
+        a_donation.save()
+        return render(request, 'project_details.html', {
+            'project': project,
+            'donate_msg': 'you have just donated here',
+            'reward_id': reward_id
+        })
+    else:
+        return render(request, 'project_details.html', {
+            'project': project,
+            'donate_msg': 'error while donating',
+            'reward_id': reward_id
+        })
 
+
+    
 @login_required
 def create_project(request):
     form = ProjectForm(request.POST)
