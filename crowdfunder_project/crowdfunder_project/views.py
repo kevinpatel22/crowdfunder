@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from crowdfunder_project.forms import ProjectForm, LoginForm
@@ -72,9 +73,7 @@ def donate_reward(request, id):
             'donate_msg': 'error while donating',
             'reward_id': reward_id
         })
-
-
-    
+           
 @login_required
 def create_project(request):
     form = ProjectForm(request.POST)
@@ -150,3 +149,34 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/home')
+
+@login_required
+def my_profile(request):
+    user_profile = request.user
+    projects_own = user_profile.projects.all()
+    projects_funded = set()
+    donations = user_profile.charities.all()
+    for donate in donations:
+        projects_funded.add(donate.reward.project)
+    total_amount_pledged = 0
+    charities = user_profile.charities.all()
+    for charity in charities:
+        total_amount_pledged += int(charity.amount)
+    context = {'projects_own': projects_own, 'projects_backed': projects_funded, 'pledged_amount': total_amount_pledged}
+    return render(request, 'profile_page.html', context)
+
+
+@login_required
+def update_project(request, id):
+    project = get_object_or_404(Project, pk=id, owner=request.user.pk)
+    # print('project',project)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('show_project', id=project.id)
+    else:
+        form = ProjectForm(instance=project) 
+    html_response = render(request, 'update_project.html', {'form': form, 'project': project})
+    return HttpResponse(html_response)
+    
