@@ -30,6 +30,10 @@ def add_reward(request, id):
     return render(request, 'add_reward.html', context)
 
 @login_required
+def donate_reward(request, id):
+    pass
+
+@login_required
 def save_reward(request, id):
     form = RewardForm(request.POST)
     print('-----------------')
@@ -55,8 +59,6 @@ def save_reward(request, id):
         context = {'error_msg': 'You have invalid form, try again!', 'form': form, 'pid': id}
         return render(request, 'add_reward.html', context)
 
-
-    return HttpResponse('to save reward')
 """
 category
 title

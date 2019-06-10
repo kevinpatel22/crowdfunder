@@ -27,6 +27,7 @@ urlpatterns = [
     path('projects/<int:id>/', show_project, name='show_project'),
     path('projects/<int:id>/add_reward', add_reward, name='add_reward'),
     path('projects/<int:id>/save_reward', save_reward, name='save_reward'),
+    path('donate/<int:id>/', donate_reward, name='donate_reward'),
     # path('projects/', show_project, name='projects_page'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
