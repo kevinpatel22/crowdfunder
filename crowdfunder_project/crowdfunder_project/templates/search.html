@@ -6,8 +6,10 @@
 
         <div class="all_projects">
                 {% for project in projects %}
-                        <img src="{{project.url}}">
-                        <li><p>{{project.title}} by {{picture.owner}}</p></li>
+                        <a href="{% url 'show_project' id=project.id %}">
+                        <img src="{{project.image}}" alt={{project.title}}>
+                        <p>{{project.title}} by {{project.owner}}</p>
+                        </a>
                 {% endfor %}
         </div>        
 
