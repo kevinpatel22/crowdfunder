@@ -150,3 +150,22 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/home')
+
+@login_required
+def my_profile(request):
+    user_profile = request.user
+    projectsown = user_profile.projects.all()
+    projectsbacked = user_profile.charities.all()
+    context = {'projectsown': projectsown, 'projectsbacked': projectsbacked}
+    return render(request, 'profile_page.html', context)
+
+
+@login_required
+def update_project(request):
+        user_title = request.POST['title']
+        user_message = request.POST['message']
+        user_select_project = request.POST['project']
+        select_project = Project.objects.get(id=user_select_project)
+        updates = Update(title=user_title, message=user_message, project=select_project)
+        updates.save()
+        return redirect("show_project", id=user_select_project)
