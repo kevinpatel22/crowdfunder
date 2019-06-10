@@ -73,9 +73,7 @@ def donate_reward(request, id):
             'donate_msg': 'error while donating',
             'reward_id': reward_id
         })
-
-
-    
+           
 @login_required
 def create_project(request):
     form = ProjectForm(request.POST)

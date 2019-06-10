@@ -1,11 +1,48 @@
-
-.project {
-    border: 1px solid grey;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
+*,* ::before, *::after {
+    box-sizing: border-box;
+ }
+ 
+.navtop {
+    display: flex;
+    align-items: center;
+    background-color: rgb(41, 41, 41);
+    padding: 1em;
+    font-size: 20px;
+    justify-content: space-between;
 }
 
+.search {
+    flex-wrap: wrap;
+}
+
+.navtop ul > li{
+    padding: 5px 5px 5px 5px;
+    font-size: 20px;
+    list-style: none;
+    display:inline-block;
+    text-align: right;
+}
+
+.navtop a {
+    text-decoration: none;
+    color: white;
+}
+
+.navtop a:hover {
+    color: gold;
+}
+
+.header {
+    color: white;
+    padding: 1px 30px;
+    font-size: 30px;
+    font-family: 'Rock Salt', cursive;
+    color: gold;
+}
+
+.project {
+    background: white;
+}
 
 .reward {
     border: 2px dotted red;
@@ -14,23 +51,40 @@
     border-radius: 20px;
 }
 
-
 .top {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 90%;
-    margin: 0 auto;
+    list-style: none;
+    grid-gap: 1em;
+    border: 4px solid gold;
+    padding: 10px;
+    margin: 10px;
+}
+
+.project a {
+    text-decoration: none;
+    color: black;
+}
+
+.project .title {
+    font-size: 2em;
+    font-family: 'Permanent Marker', cursive;
+
+}
+
+.project .description {
+    font-size: 1em;
+    font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
 }
 
 .box {
-    display: block;
-    align-items: center;
-    background-color: aquamarine;
-    text-align: center;
-    margin: 0 auto;
-
+    color: white;
 }
-.box img{
-    width: 200px;
-    height: 80px;
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: gold;
+    border: none;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
