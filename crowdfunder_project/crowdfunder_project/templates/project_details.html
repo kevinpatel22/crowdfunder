@@ -2,11 +2,15 @@
 {% block content %}
 
 
-<main class='project'>
+<section class='project'>
+    <div class='title'>
     <h2>{{ project.title}}</h2>
+</div>
     <h3>category: {{ project.category }}</h3>
     <img src="{{ project.image }}" alt="image of project">
+    <div class='description'>
     <h3>{{ project.description }}</h3>
+    </div>
     <h3>$ {{ project.budget}}</h3>
     <h3>{{ project.start_dtime}}</h3>
     <h3>{{ project.end_dtime}}</h3>
@@ -33,5 +37,6 @@
         </section>
     {% endfor %}
 
-</main>
+  
+</section>
 {% endblock %}
