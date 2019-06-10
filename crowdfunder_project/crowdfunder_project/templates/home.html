@@ -1,9 +1,15 @@
 {% extends 'base.html'%}
 {% block content %}
-
+<br>
+<div class='project-title'>
+<h1>Projects</h1>
+</div>
+<br>
 {% for project in projects %}
 <section class="project">
     <a href="{% url 'show_project' id=project.id %}">
+            <img src="{{ project.image }}" alt="image of project">
+
         <div class='title'>
             <h3>{{ project.title}}</h3>
         </div>
@@ -11,7 +17,6 @@
     <div class='description'>
         <p>{{ project.description }}</p>
     </div>
-    <p> {{ project.budget }}</p>
 </section>
 {% endfor %}
 
