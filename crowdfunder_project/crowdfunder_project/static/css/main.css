@@ -40,10 +40,9 @@
     color: gold;
 }
 
-<<<<<<< HEAD
 .project {
     background: white;
-=======
+}
 
 .reward {
     border: 2px dotted red;
@@ -52,9 +51,7 @@
     border-radius: 20px;
 }
 
-
 .top {
->>>>>>> 2757993244a2687d96d7d902a70e51aa72c71828
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
