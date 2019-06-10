@@ -2,13 +2,17 @@
 {% block content %}
 
 
-<main class='project'>
+<section class='project'>
+    <div class='title'>
     <h2>{{ project.title}}</h2>
+</div>
     <img src="{{ project.image }}" alt="image of project">
+    <div class='description'>
     <h3>{{ project.description }}</h3>
+    </div>
     <h3>$ {{ project.budget}}</h3>
     <h3>Owner: {{ project.owner }}</h3>
 
   
-</main>
+</section>
 {% endblock %}

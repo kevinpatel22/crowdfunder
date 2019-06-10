@@ -1,24 +1,26 @@
 {% extends 'base.html'%}
 {% block content %}
 
-    <style>
+<style>
 
-    </style>
- 
-    <h2>Home Page</h2>
+</style>
 
-    <ul>
-        {% for project in projects %}
-            <li class="project"> 
-                <a href="{% url 'show_project' id=project.id %}">
-                    <h3>{{ project.title}}</h3>
-                </a>
-                    <p>{{ project.description }}</p>
-                    <p> {{ project.budget }}</p>
-            </li> 
-        {% endfor %}
-    </ul>
+<ul>
+    {% for project in projects %}
+    <section class="project">
+        <a href="{% url 'show_project' id=project.id %}">
+            <div class='title'>
+                <h3>{{ project.title}}</h3>
+            </div>
+        </a>
+        <div class='description'>
+            <p>{{ project.description }}</p>
+        </div>
+        <p> {{ project.budget }}</p>
+    </section>
+    {% endfor %}
+</ul>
 
-            
+
 
 {% endblock %}

@@ -1,34 +1,29 @@
-{% load static %}
-<nav class='nav top'>
-<div class='box' >
-
-{% if request.user.is_authenticated %}
-
-Link to profile / projects
-
-{% else %}
-write any thing else
-{% endif %}
-
-</div>
-<div class='box' >
-<a href='{% url 'home_page' %}'>
-<img src='{% static 'img/logo.png' %}' >
-</a>
-</div>
-<div class='box' >
-{% if request.user.is_authenticated %}
-<h3>Hello {{ request.user.username }} !</h3>
-<a href='{% url 'logout' %}'>Logout</a>
-
-{% else %}
-<a href='{% url 'login' %}'>Log in</a>
-
-or 
-
-<a href='{% url 'signup' %}'>Sign Up!</a>
-
-
-{% endif %}
-</div>
-</nav>
+<!-- {% load static %} -->
+<!-- <nav class='navtop'> -->
+    <!-- <div class='search'> -->
+        <!-- <form action="{% url 'search_project' %}" method="get"> -->
+            <!-- <label for="search_project"> -->
+                <!-- <input type="search" placeholder="Search.." id="project" name="project" value="{{ query }}" /> -->
+            <!-- </label> -->
+            <!-- <input type="submit" value="Search" /> -->
+        <!-- </form> -->
+    <!-- </div> -->
+    <!-- <div class='box'> -->
+        <!-- <a href="{% url 'home_page' %}"> -->
+            <!-- <h1 class="header">PUNCHSTARTER</h1> -->
+        <!-- </a> -->
+    <!-- </div> -->
+    <!-- <div class='box'> -->
+        <!-- {% if request.user.is_authenticated %} -->
+        <!-- <h3>Hello {{ request.user.username }}!</h3> -->
+        <!-- <a href="{% url 'logout' %}">Logout</a> -->
+<!--  -->
+        <!-- {% else %} -->
+        <!-- <ul> -->
+            <!-- <li><a href="{% url 'login' %}">Log in</a></li> -->
+            <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li> -->
+        <!-- </ul> -->
+<!--  -->
+        <!-- {% endif %} -->
+    <!-- </div> -->
+<!-- </nav> -->

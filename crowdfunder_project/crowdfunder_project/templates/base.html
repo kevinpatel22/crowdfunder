@@ -11,19 +11,50 @@
     <title>Crowdfunder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
+        <nav class='navtop'>
+                <div class='search'>
+                    <form action="{% url 'search_project' %}" method="get">
+                        <label for="search_project">
+                            <input type="search" placeholder="Search.." id="project" name="project" value="{{ query }}" />
+                        </label>
+                        <input type="submit" value="Search" />
+                    </form>
+                </div>
+                <div class='box'>
+                    <a href="{% url 'home_page' %}">
+                        <h1 class="header">PUNCHSTARTER</h1>
+                    </a>
+                </div>
+                <div class='box'>
+                    {% if request.user.is_authenticated %}
+                    <h3>Hello {{ request.user.username }}!</h3>
+                    <a href="{% url 'logout' %}">Logout</a>
+            
+                    {% else %}
+                    <ul>
+                        <li><a href="{% url 'login' %}">Log in</a></li>
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    </ul>
+            
+                    {% endif %}
+                </div>
+            </nav>
 
     {% block top_nav %}
      {% include 'top_nav.html' %}
+     <!-- {% include 'category_nav.html' %} -->
     {% endblock %}
 
-<nav class='nav cats'>
+<!-- <nav class='nav cats'>
     {% block cat_nav %}
-     {% include 'category_nav.html' %}
+     
     {% endblock %}
-</nav>
+</nav> -->
 
 
     {% block content %}
