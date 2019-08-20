@@ -2,34 +2,34 @@
 {% block title %} Punchstarter {% endblock %}
 {% block content %}
 {% load staticfiles %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<br>
-<div class='project-title'>
-<h1>Design & Tech</h1>
-<h1>Film</h1>
-<h1>Food & Craft</h1>
-<h1>Games</h1>
-<h1>Music</h1>
-<h1>Publishing</h1>
-    
-</div class="project-home">
-<h1 id="active-project">Active Projects</h1>
-<br>
-{% for project in projects %}
-<section class="project">
-    <a href="{% url 'show_project' id=project.id %}">
-            <img src="{{ project.image }}" alt="image of project">
-
-        <div class='title'>
-            <h3>{{ project.title}}</h3>
-        </div>
-        
-    </a>
-    <div class='description'>
-        <p>{{ project.description }}</p>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <br>
+    <div class='project-title'>
+        <h1>Design & Tech</h1>
+        <h1>Film</h1>
+        <h1>Food & Craft</h1>
+        <h1>Games</h1>
+        <h1>Music</h1>
+        <h1>Publishing</h1>
     </div>
-</section>
-{% endfor %}
+    <br>
+    <h1 id="active-project">Active Projects</h1>
+    <section class="projects">
+        {% for project in projects %}
+        <div class="project">
+            <a href="{% url 'show_project' id=project.id %}">
+                <img class="center" src="{{ project.image }}" alt="image of project">
+                <div class='title'>
+                    <h3>{{ project.title}}</h3>
+                </div>
+            </a>
+            <div class='description'>
+                <p>{{ project.description|truncatechars:300 }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
 
 
 
