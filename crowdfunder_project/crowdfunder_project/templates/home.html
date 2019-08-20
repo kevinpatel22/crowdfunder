@@ -2,22 +2,6 @@
 {% block title %} Punchstarter {% endblock %}
 {% block content %}
 {% load staticfiles %}
-<<<<<<< HEAD
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<br>
-<div class='project-title'>
-<h1>Projects</h1>
-</div>
-<br>
-
-<section class="projects">
-    
-    {% for project in projects %}
-        <div class="project">
-            <a href="{% url 'show_project' id=project.id %}">
-                    <img class="center" src="{{ project.image }}" alt="image of project">
-    
-=======
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <br>
     <div class='project-title'>
@@ -32,30 +16,17 @@
     <h1 id="active-project">Active Projects</h1>
     <section class="projects">
         {% for project in projects %}
-        <div class="project">
-            <a href="{% url 'show_project' id=project.id %}">
-                <img class="center" src="{{ project.image }}" alt="image of project">
->>>>>>> kevin
-                <div class='title'>
-                    <h3>{{ project.title}}</h3>
+            <div class="project">
+                <a href="{% url 'show_project' id=project.id %}">
+                    <img class="center" src="{{ project.image }}" alt="image of project">
+                    <div class='title'>
+                        <h3>{{ project.title}}</h3>
+                    </div>
+                </a>
+                <div class='description'>
+                    <p>{{ project.description|truncatechars:300 }}</p>
                 </div>
-            </a>
-            <div class='description'>
-                <p>{{ project.description|truncatechars:300 }}</p>
             </div>
-        </div>
-<<<<<<< HEAD
-    {% endfor %}
-
-
-</section>
-=======
         {% endfor %}
-
     </section>
->>>>>>> kevin
-
-
-
-
 {% endblock %}
