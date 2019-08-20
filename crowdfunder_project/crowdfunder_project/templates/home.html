@@ -2,6 +2,7 @@
 {% block title %} Punchstarter {% endblock %}
 {% block content %}
 {% load staticfiles %}
+<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 <br>
 <div class='project-title'>
@@ -16,6 +17,25 @@
             <a href="{% url 'show_project' id=project.id %}">
                     <img class="center" src="{{ project.image }}" alt="image of project">
     
+=======
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <br>
+    <div class='project-title'>
+        <h1>Design & Tech</h1>
+        <h1>Film</h1>
+        <h1>Food & Craft</h1>
+        <h1>Games</h1>
+        <h1>Music</h1>
+        <h1>Publishing</h1>
+    </div>
+    <br>
+    <h1 id="active-project">Active Projects</h1>
+    <section class="projects">
+        {% for project in projects %}
+        <div class="project">
+            <a href="{% url 'show_project' id=project.id %}">
+                <img class="center" src="{{ project.image }}" alt="image of project">
+>>>>>>> kevin
                 <div class='title'>
                     <h3>{{ project.title}}</h3>
                 </div>
@@ -24,10 +44,16 @@
                 <p>{{ project.description|truncatechars:300 }}</p>
             </div>
         </div>
+<<<<<<< HEAD
     {% endfor %}
 
 
 </section>
+=======
+        {% endfor %}
+
+    </section>
+>>>>>>> kevin
 
 
 

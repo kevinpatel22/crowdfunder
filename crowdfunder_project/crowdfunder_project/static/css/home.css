@@ -1,3 +1,21 @@
+h1 {
+  display: inline;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
 
+h3 {
+  font-size: 2rem;
+}
 
+p {
+  overflow: hidden;
+}
 
+#active-project {
+  display: block;
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+}

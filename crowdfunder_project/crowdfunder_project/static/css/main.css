@@ -1,19 +1,21 @@
-{}
-*,* ::before, *::after {
+*,
+* ::before,
+*::after {
     box-sizing: border-box;
- }
+}
 
 body {
-    font-family: TedNext,TedNextNew,arial;
+    font-family: TedNext, TedNextNew, arial;
     font-style: normal;
     color: #3c4141;
- }
- 
+    background: rgb(235, 235, 235);
+}
+
 .navtop {
     display: flex;
     align-items: center;
     background-color: rgb(41, 41, 41);
-    padding: 1em;
+    padding: 0 1em 1em 1em;
     font-size: 20px;
     justify-content: space-between;
 }
@@ -22,11 +24,11 @@ body {
     flex-wrap: wrap;
 }
 
-.navtop ul > li{
+.navtop ul>li {
     padding: 5px 5px 5px 5px;
     font-size: 20px;
     list-style: none;
-    display:inline-block;
+    display: inline-block;
     text-align: right;
 }
 
@@ -57,8 +59,25 @@ body {
 .project-title {
     font-size: 24px;
     border-bottom: 1px solid rgb(41, 41, 41);
-    padding-bottom: 2px;
-    margin: 15px;
+    padding-bottom: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    margin: 1rem 4rem 4rem 4rem;
+}
+
+.project {
+    background: white;
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    border: 4px solid gold;
 }
 
 
@@ -137,10 +156,11 @@ body {
     font-weight: bold;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
+input[type=button],
+input[type=submit],
+input[type=reset] {
     background-color: gold;
     border: none;
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
