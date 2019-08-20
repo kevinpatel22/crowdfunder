@@ -5,8 +5,15 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 <br>
 <div class='project-title'>
-<h1>Projects</h1>
-</div>
+<h1>Design & Tech</h1>
+<h1>Film</h1>
+<h1>Food & Craft</h1>
+<h1>Games</h1>
+<h1>Music</h1>
+<h1>Publishing</h1>
+    
+</div class="project-home">
+<h1 id="active-project">Active Projects</h1>
 <br>
 {% for project in projects %}
 <section class="project">
@@ -16,6 +23,7 @@
         <div class='title'>
             <h3>{{ project.title}}</h3>
         </div>
+        
     </a>
     <div class='description'>
         <p>{{ project.description }}</p>
