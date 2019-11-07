@@ -13,6 +13,6 @@ A backend clone of Kick starter using Django. As a team, we were tasked with man
 
 ## Team
 - [Kevin Patel](https://kevinpatel.ca/)
-- [Alex Yang](https://github.com/hassanashmawy)
+- [Hassan Ashmawy](https://github.com/hassanashmawy)
 - [Corey Crosby](https://github.com/coreycrosby)
 - [Yael Jacobs](https://github.com/ynjacobs)
